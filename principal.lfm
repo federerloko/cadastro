@@ -1,0 +1,61 @@
+object frmprincipal: Tfrmprincipal
+  Left = 277
+  Height = 562
+  Top = 93
+  Width = 465
+  Caption = 'frmprincipal'
+  ClientHeight = 562
+  ClientWidth = 465
+  LCLVersion = '3.4.0.0'
+  object edtNome: TEdit
+    Left = 16
+    Height = 23
+    Top = 40
+    Width = 200
+    TabOrder = 0
+    Text = 'edtNome'
+  end
+  object edtIdade: TEdit
+    Left = 232
+    Height = 23
+    Top = 40
+    Width = 200
+    TabOrder = 1
+    Text = 'edtIdade'
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 15
+    Top = 16
+    Width = 33
+    Caption = 'Nome'
+  end
+  object Label2: TLabel
+    Left = 232
+    Height = 15
+    Top = 16
+    Width = 29
+    Caption = 'Idade'
+  end
+  object memLista: TMemo
+    Left = 16
+    Height = 376
+    Top = 88
+    Width = 416
+    Font.Name = 'Courier New'
+    Lines.Strings = (
+      'memLista'
+    )
+    ParentFont = False
+    TabOrder = 2
+  end
+  object btnCadastrar: TButton
+    Left = 192
+    Height = 25
+    Top = 488
+    Width = 75
+    Caption = 'Cadastrar'
+    TabOrder = 3
+    OnClick = btnCadastrarClick
+  end
+end
