@@ -1,0 +1,10 @@
+antonio        23  0
+jose           36  0
+pedro          12  0
+fernanda       30  0
+geraldo        58  0
+Renata         57  9000,65
+Gabriela       46  2000,00
+Gabriela       897 2000,00
+Fabiana        40  0,00
+Vitoria        20  10000,00

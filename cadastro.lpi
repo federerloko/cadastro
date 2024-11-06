@@ -38,6 +38,7 @@
         <Filename Value="principal.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmprincipal"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>

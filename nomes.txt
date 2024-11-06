@@ -1,0 +1,8 @@
+antonio        23
+jose           36
+pedro          12
+fernanda       30
+geraldo        58
+Renata         57  R$ 9000,65
+Gabriela       46  R$ 2000,00
+Gabriela       897 R$ 2000,00
