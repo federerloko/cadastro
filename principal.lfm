@@ -1,11 +1,12 @@
 object frmprincipal: Tfrmprincipal
-  Left = 242
+  Left = 273
   Height = 560
-  Top = 15
+  Top = 61
   Width = 446
   Caption = 'frmprincipal'
   ClientHeight = 560
   ClientWidth = 446
+  OnActivate = FormActivate
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '3.4.0.0'
@@ -39,7 +40,7 @@ object frmprincipal: Tfrmprincipal
   end
   object memLista: TMemo
     Left = 16
-    Height = 376
+    Height = 176
     Top = 128
     Width = 416
     Enabled = False
@@ -48,18 +49,18 @@ object frmprincipal: Tfrmprincipal
     TabOrder = 2
   end
   object btnCadastrar: TButton
-    Left = 104
+    Left = 48
     Height = 25
-    Top = 520
+    Top = 512
     Width = 75
     Caption = 'Cadastrar'
     TabOrder = 3
     OnClick = btnCadastrarClick
   end
   object btnSalvar: TButton
-    Left = 240
+    Left = 152
     Height = 25
-    Top = 520
+    Top = 512
     Width = 75
     Caption = 'Salvar'
     TabOrder = 4
@@ -78,5 +79,89 @@ object frmprincipal: Tfrmprincipal
     Top = 72
     Width = 35
     Caption = 'Salário'
+  end
+  object grdPessoas: TDBGrid
+    Left = 16
+    Height = 100
+    Top = 328
+    Width = 416
+    Color = clWindow
+    Columns = <>
+    DataSource = dsPessoas
+    TabOrder = 6
+  end
+  object btnEndereco: TButton
+    Left = 264
+    Height = 25
+    Top = 508
+    Width = 147
+    Caption = 'Cadastrar Endereço'
+    TabOrder = 7
+    OnClick = btnEnderecoClick
+  end
+  object conexao: TSQLite3Connection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'cadastro.db'
+    KeepConnection = True
+    Transaction = transacao
+    AlwaysUseBigint = False
+    Left = 256
+    Top = 72
+  end
+  object transacao: TSQLTransaction
+    Active = False
+    Database = conexao
+    Left = 368
+    Top = 72
+  end
+  object qryID: TSQLQuery
+    FieldDefs = <>
+    Database = conexao
+    Transaction = transacao
+    Params = <>
+    Macros = <>
+    Left = 312
+    Top = 72
+  end
+  object qryPessoas: TSQLQuery
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'idade'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'salario'
+        DataType = ftLargeint
+        Precision = -1
+      end>
+    Database = conexao
+    Transaction = transacao
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    Macros = <>
+    Left = 414
+    Top = 74
+  end
+  object dsPessoas: TDataSource
+    AutoEdit = False
+    DataSet = qryPessoas
+    Left = 48
+    Top = 208
   end
 end

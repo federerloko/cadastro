@@ -26,6 +26,12 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="SQLDBLaz"/>
+      </Item>
+      <Item>
         <PackageName Value="LCL"/>
       </Item>
     </RequiredPackages>
@@ -45,6 +51,12 @@
         <Filename Value="mod_funcoes.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="mod_Funcoes"/>
+      </Unit>
+      <Unit>
+        <Filename Value="endereco.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEndereco"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>
   </ProjectOptions>

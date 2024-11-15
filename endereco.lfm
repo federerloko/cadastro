@@ -1,0 +1,19 @@
+object frmEndereco: TfrmEndereco
+  Left = 255
+  Height = 417
+  Top = 101
+  Width = 550
+  Caption = 'frmEndereco'
+  ClientHeight = 417
+  ClientWidth = 550
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  LCLVersion = '3.4.0.0'
+  object Label1: TLabel
+    Left = 24
+    Height = 15
+    Top = 24
+    Width = 34
+    Caption = 'Label1'
+  end
+end
