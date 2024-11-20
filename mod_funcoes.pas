@@ -5,7 +5,7 @@ unit mod_Funcoes;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils,Forms,StdCtrls;
 
 function IsInteger(value:string):Boolean;
 function IsFloat(value:string):Boolean;
@@ -13,6 +13,7 @@ function FormataCampo(value:string;tamanho:Integer):String;
 function FormataMoeda(value:string):string;
 function BuscaSalario(sValorLinha:string):boolean;
 function SalarioNumero(value:string):string;
+procedure LimpaEdits(form:TForm);
 
 implementation
 
@@ -91,6 +92,16 @@ begin
             Result:=value
          else
              Result:='0';
+end;
+
+procedure LimpaEdits(form: TForm);
+var
+   i:integer;
+begin
+     for i:=0 to form.ComponentCount-1 do
+         if(form.Components[i] is TEdit)then
+            TEdit(form.Components[i]).Text:='';
+
 end;
 
 end.

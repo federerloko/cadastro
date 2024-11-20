@@ -35,7 +35,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    function ProximoID:integer;
+    function ProximoID(tabela:string):integer;
   private
 
   public
@@ -66,7 +66,7 @@ begin
      end;
 
      try
-        sId:=IntToStr(ProximoID);
+        sId:=IntToStr(ProximoID('pessoas'));
         sNome:=QuotedStr(edtNome.Text);
         sSalario:=edtSalario.Text;
         sIdade:=edtIdade.Text;
@@ -94,11 +94,19 @@ begin
 end;
 
 procedure Tfrmprincipal.btnEnderecoClick(Sender: TObject);
+var
+   Dados:TEnderecoDados;
 begin
      with TfrmEndereco.Create(nil) do
      try
         iIdPessoa:=qryPessoas.FieldByName('id').AsInteger;
+        iIdEndereco:=ProximoID('enderecos');
         ShowModal;
+
+        if(ModalResult = mrOK)then
+        begin
+             Dados:=DEndereco;
+        end;
      finally
         Free;
      end;
@@ -163,18 +171,26 @@ begin
             memLista.Lines[i]:=memLista.Lines[i]+'  S\ Salario Cadastrado';
 end;
 
-function Tfrmprincipal.ProximoID: integer;
+function Tfrmprincipal.ProximoID(tabela: string): integer;
 begin
-     qryID.Close;
-     qryID.SQL.Clear;
-     qryID.SQL.Add('select max(id) from pessoas');
-     qryID.Open;
+     try
+        try
+          qryID.Close;
+          qryID.SQL.Clear;
+          qryID.SQL.Add('select max(id) from '+tabela);
+          qryID.Open;
 
-     if(qryID.RecordCount > 0)and (qryID.Fields[0].Value <> null) then
+          if(qryID.RecordCount > 0)and (qryID.Fields[0].Value <> null) then
 
-           Result:=qryID.Fields[0].AsInteger + 1
-     else
-         Result:=1;
+             Result:=qryID.Fields[0].AsInteger + 1
+          else
+             Result:=1;
+        except
+              Exit;
+        end;
+     finally
+        FreeAndNil(qryID);
+     end;
 end;
 
 end.

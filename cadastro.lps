@@ -9,8 +9,8 @@
         <Filename Value="cadastro.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="62" Y="8"/>
-        <UsageCount Value="26"/>
+        <CursorPos X="55" Y="22"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -19,9 +19,10 @@
         <ComponentName Value="frmprincipal"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="95"/>
-        <CursorPos X="24" Y="105"/>
-        <UsageCount Value="26"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="91"/>
+        <CursorPos X="24" Y="110"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -30,145 +31,161 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="mod_Funcoes"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="30"/>
-        <CursorPos X="25" Y="93"/>
-        <UsageCount Value="26"/>
+        <TopLine Value="83"/>
+        <CursorPos X="44" Y="101"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="endereco.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEndereco"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="20"/>
-        <CursorPos X="13" Y="41"/>
-        <UsageCount Value="21"/>
+        <TopLine Value="66"/>
+        <CursorPos X="6" Y="81"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="826"/>
+        <CursorPos X="3" Y="839"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="937"/>
+        <CursorPos X="3" Y="950"/>
+        <UsageCount Value="10"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="principal.pas"/>
-        <Caret Line="63" TopLine="44"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="140" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="141" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="142" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="143" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="145" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="149" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="140" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="150" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="64" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="65" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="66" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="68" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="70" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="71" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="72" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="148" Column="77" TopLine="129"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="149" Column="77" TopLine="138"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="150" Column="77" TopLine="139"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="151" Column="77" TopLine="140"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="133" Column="3" TopLine="108"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="129" Column="21" TopLine="114"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="122" Column="64" TopLine="115"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="79" Column="53" TopLine="63"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="81" Column="63" TopLine="72"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="101" Column="6" TopLine="93"/>
-      </Position>
-      <Position>
-        <Filename Value="principal.pas"/>
-        <Caret Line="115" Column="13" TopLine="110"/>
+        <Caret Line="69" Column="45" TopLine="56"/>
       </Position>
       <Position>
         <Filename Value="endereco.pas"/>
-        <Caret Line="12" Column="14"/>
+        <Caret Line="36" Column="12" TopLine="28"/>
       </Position>
       <Position>
         <Filename Value="endereco.pas"/>
-        <Caret Line="17" Column="14" TopLine="6"/>
+        <Caret Line="54" Column="10" TopLine="38"/>
       </Position>
       <Position>
         <Filename Value="endereco.pas"/>
-        <Caret Line="36" Column="3" TopLine="29"/>
+        <Caret Line="19" Column="22"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="9"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="81" Column="25" TopLine="60"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="82" Column="11" TopLine="61"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="9" Column="12"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="78" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="38" Column="20" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="101" Column="11" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="38" Column="18" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="170" Column="6" TopLine="157"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="29" Column="5" TopLine="17"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="43" Column="13" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="48" Column="7" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="66" Column="112" TopLine="61"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="65" Column="112" TopLine="60"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="84" Column="9" TopLine="60"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="82" Column="15" TopLine="60"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="182" Column="7" TopLine="165"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="98" Column="13" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="80" Column="8" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="51" Column="27" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="52" Column="12" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="51" Column="4" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="principal.pas"/>
+        <Caret Line="106" Column="9" TopLine="85"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="81" Column="5" TopLine="67"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="82" Column="25" TopLine="69"/>
+      </Position>
+      <Position>
+        <Filename Value="endereco.pas"/>
+        <Caret Line="83" Column="24" TopLine="69"/>
       </Position>
     </JumpHistory>
     <RunParams>

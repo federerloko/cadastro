@@ -56,6 +56,7 @@
         <Filename Value="endereco.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEndereco"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>
