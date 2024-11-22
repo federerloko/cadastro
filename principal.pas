@@ -14,7 +14,6 @@ type
 
   Tfrmprincipal = class(TForm)
     btnCadastrar: TButton;
-    btnSalvar: TButton;
     btnEndereco: TButton;
     grdPessoas: TDBGrid;
     dsPessoas: TDataSource;
@@ -24,17 +23,14 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    memLista: TMemo;
     conexao: TSQLite3Connection;
     qryID: TSQLQuery;
     qryPessoas: TSQLQuery;
     transacao: TSQLTransaction;
     procedure btnCadastrarClick(Sender: TObject);
     procedure btnEnderecoClick(Sender: TObject);
-    procedure btnSalvarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     function ProximoID(tabela:string):integer;
   private
 
@@ -44,6 +40,7 @@ type
 
 var
   frmprincipal: Tfrmprincipal;
+  NomesCampos:array[0..3]of string=('Código','Nome','Idade','Salário');
 
 implementation
 
@@ -57,15 +54,11 @@ procedure Tfrmprincipal.btnCadastrarClick(Sender: TObject);
 var
    sId,sNome,sSalario,sIdade,sSql:string;
 begin
-     if(edtSalario.Text = '')then
-        edtSalario.Text:='0';
 
-     if((edtIdade.Text<>'')and(edtNome.Text<>'')and(IsInteger(edtIdade.Text))and(IsFloat(edtSalario.Text)))then
-     begin
-          memLista.Lines.Add(FormataCampo(edtNome.Text,15)+FormataCampo(edtIdade.Text,4)+FormataMoeda(edtSalario.Text));
-     end;
 
      try
+
+
         sId:=IntToStr(ProximoID('pessoas'));
         sNome:=QuotedStr(edtNome.Text);
         sSalario:=edtSalario.Text;
@@ -73,7 +66,7 @@ begin
 
         sSql:=Format('insert into pessoas values(%s,%s,%s,%s)',[sId,sNome,sIdade,sSalario]);
 
-        conexao.Transaction.Rollback;
+        transacao.EndTransaction;
         conexao.Transaction.StartTransaction;
         conexao.ExecuteDirect(sSql);
         conexao.Transaction.Commit;
@@ -96,6 +89,7 @@ end;
 procedure Tfrmprincipal.btnEnderecoClick(Sender: TObject);
 var
    Dados:TEnderecoDados;
+   sSql:string;
 begin
      with TfrmEndereco.Create(nil) do
      try
@@ -105,53 +99,63 @@ begin
 
         if(ModalResult = mrOK)then
         begin
-             Dados:=DEndereco;
+
+              Dados:=DEndereco;
+              with Dados do
+                   sSql:=Format('insert into enderecos (id,id_pessoa,logradouro,complemento,cep,bairro,cidade,estado,numero,ativo) values(%d,%d,%s,%s,%s,%s,%s,%s,%s,%d)',
+                   [iIdEndereco,iIdPessoa,Logradouro,Complemento,CEP,Bairro,Cidade,Estado,Numero,Ativo]);
+
+              try
+
+
+                 transacao.EndTransaction;
+                 conexao.Transaction.StartTransaction;
+                 conexao.ExecuteDirect(sSql);
+                 conexao.Transaction.Commit;
+
+              except on E:exception do
+              begin
+
+                    transacao.Rollback;
+                    ShowMessage(e.Message);
+
+              end;
+
+             end;
         end;
+
      finally
         Free;
      end;
+
 end;
 
-procedure Tfrmprincipal.btnSalvarClick(Sender: TObject);
-var
-   stListaVirtual:TStringList;
-   i:Integer;
-
-   sNome,sIdade,sSalario,sLinhaVirtual:string;
-begin
-     try
-        stListaVirtual:=TStringList.Create;
-
-        for i:=0 to memLista.Lines.Count -1  do
-        begin
-             sNome:=Copy(memLista.Lines[i],1,15);
-             sIdade:=Copy(memLista.Lines[i],16,4);
-             sSalario:=Copy(memLista.Lines[i],20,Length(memLista.Lines[i]));
-
-             sLinhaVirtual:=sNome+sIdade+SalarioNumero(sSalario);
-
-             stListaVirtual.Add(sLinhaVirtual);
-        end;
-
-        stListaVirtual.SaveToFile('nomes_.txt');
-     finally
-        stListaVirtual.Free;
-     end;
-
-     {if(memLista.Lines.Count>0)then
-        if(FileExists('nomes.txt'))then
-           memLista.Lines.SaveToFile('nomes.txt')
-        else
-        begin
-            ShowMessage('Arquivo de dados não existe. Será criado');
-            memLista.Lines.SaveToFile('nomes.txt');
-        end;}
-end;
 
 procedure Tfrmprincipal.FormActivate(Sender: TObject);
+var
+   i:integer;
 begin
+
+     transacao.Active:=false;
+
      qryPessoas.SQL.Add('select * from pessoas');
      qryPessoas.Open;
+
+     if(qryPessoas.RecordCount > 0)then
+       for i:=0 to qryPessoas.FieldCount -1 do
+           with grdPessoas.Columns.Add do
+           begin
+                 FieldName:=qryPessoas.Fields[i].FieldName;
+                 if(qryPessoas.Fields[i].DataType = ftString)then
+                    Width:=160
+                 else
+                    Width:=80;
+
+                 if(qryPessoas.Fields[i].DataType = ftLargeint)then
+                    DisplayFormat:='R$ 0.00';
+
+                 Title.Caption:=NomesCampos[i];
+           end;
 end;
 
 procedure Tfrmprincipal.FormCreate(Sender: TObject);
@@ -159,23 +163,11 @@ begin
 
 end;
 
-procedure Tfrmprincipal.FormShow(Sender: TObject);
-var
-   i:Integer;
-begin
-     if(FileExists('nomes.txt'))then
-        memLista.Lines.LoadFromFile('nomes.txt');
-
-     for i:=0 to memLista.Lines.Count-1 do
-         if not(BuscaSalario(memLista.Lines[i]))then
-            memLista.Lines[i]:=memLista.Lines[i]+'  S\ Salario Cadastrado';
-end;
-
 function Tfrmprincipal.ProximoID(tabela: string): integer;
 begin
      try
         try
-          qryID.Close;
+
           qryID.SQL.Clear;
           qryID.SQL.Add('select max(id) from '+tabela);
           qryID.Open;
@@ -189,7 +181,7 @@ begin
               Exit;
         end;
      finally
-        FreeAndNil(qryID);
+        qryID.Close;
      end;
 end;
 

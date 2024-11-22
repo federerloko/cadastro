@@ -17,7 +17,7 @@ type
        Bairro:string;
        Cidade:string;
        Estado:string;
-       Ativo:boolean;
+       Ativo:Int64;
     end;
 
 type
@@ -78,7 +78,7 @@ end;
 
 procedure TfrmEndereco.btncadastrarClick(Sender: TObject);
 begin
-     DEndereco.Ativo:=True;
+     DEndereco.Ativo:=1;
      DEndereco.Bairro:=QuotedStr(edtBairro.Text);
      DEndereco.CEP:=QuotedStr(edtCEP.Text);
      DEndereco.Cidade:=QuotedStr(edtCidade.Text);

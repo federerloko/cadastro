@@ -1,27 +1,28 @@
 object frmprincipal: Tfrmprincipal
-  Left = 179
+  Left = 486
   Height = 560
-  Top = 77
-  Width = 446
+  Top = 87
+  Width = 798
   Caption = 'frmprincipal'
   ClientHeight = 560
-  ClientWidth = 446
+  ClientWidth = 798
   OnActivate = FormActivate
   OnCreate = FormCreate
-  OnShow = FormShow
   LCLVersion = '3.4.0.0'
   object edtNome: TEdit
-    Left = 16
+    Left = 20
     Height = 23
     Top = 40
-    Width = 200
+    Width = 524
+    CharCase = ecUppercase
     TabOrder = 0
   end
   object edtIdade: TEdit
-    Left = 232
+    Left = 16
     Height = 23
-    Top = 40
+    Top = 104
     Width = 200
+    NumbersOnly = True
     TabOrder = 1
   end
   object Label1: TLabel
@@ -32,85 +33,66 @@ object frmprincipal: Tfrmprincipal
     Caption = 'Nome'
   end
   object Label2: TLabel
-    Left = 232
+    Left = 20
     Height = 15
-    Top = 16
+    Top = 80
     Width = 29
     Caption = 'Idade'
   end
-  object memLista: TMemo
-    Left = 16
-    Height = 176
-    Top = 128
-    Width = 416
-    Enabled = False
-    Font.Name = 'Courier New'
-    ParentFont = False
-    TabOrder = 2
-  end
   object btnCadastrar: TButton
-    Left = 48
+    Left = 56
     Height = 25
-    Top = 512
-    Width = 75
+    Top = 520
+    Width = 208
     Caption = 'Cadastrar'
-    TabOrder = 3
+    TabOrder = 2
     OnClick = btnCadastrarClick
   end
-  object btnSalvar: TButton
-    Left = 152
-    Height = 25
-    Top = 512
-    Width = 75
-    Caption = 'Salvar'
-    TabOrder = 4
-    OnClick = btnSalvarClick
-  end
   object edtSalario: TEdit
-    Left = 16
+    Left = 248
     Height = 23
-    Top = 92
+    Top = 104
     Width = 200
-    TabOrder = 5
+    TabOrder = 3
   end
   object Label3: TLabel
-    Left = 16
+    Left = 248
     Height = 15
-    Top = 72
+    Top = 80
     Width = 35
     Caption = 'Salário'
   end
   object grdPessoas: TDBGrid
     Left = 16
-    Height = 100
-    Top = 328
-    Width = 416
+    Height = 280
+    Top = 224
+    Width = 744
     Color = clWindow
     Columns = <>
     DataSource = dsPessoas
-    TabOrder = 6
+    TabOrder = 4
   end
   object btnEndereco: TButton
-    Left = 264
+    Left = 408
     Height = 25
-    Top = 508
+    Top = 520
     Width = 147
     Caption = 'Cadastrar Endereço'
-    TabOrder = 7
+    TabOrder = 5
     OnClick = btnEnderecoClick
   end
   object conexao: TSQLite3Connection
     Connected = True
     LoginPrompt = False
-    DatabaseName = 'cadastro.db'
-    KeepConnection = True
+    DatabaseName = 'C:\Users\aluno\Downloads\cadastro-main\cadastro.db'
+    KeepConnection = False
     Transaction = transacao
     AlwaysUseBigint = False
     Left = 256
     Top = 72
   end
   object transacao: TSQLTransaction
-    Active = False
+    Active = True
     Database = conexao
     Left = 368
     Top = 72
@@ -151,11 +133,11 @@ object frmprincipal: Tfrmprincipal
     Database = conexao
     Transaction = transacao
     SQL.Strings = (
-      ''
+      'select * from enderecos'
     )
     Params = <>
     Macros = <>
-    Left = 414
+    Left = 464
     Top = 74
   end
   object dsPessoas: TDataSource
